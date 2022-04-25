@@ -1,12 +1,14 @@
 package support;
 
 import dev.failsafe.internal.util.Assert;
+import org.apache.log4j.Logger;
 
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
 
 public class XmlTestData {
+    final static Logger logger = Logger.getLogger(XmlTestData.class);
     public static final String path = "src/main/resources/testData.xml";
     public static void WriteXml(TestData data, String path) {
         try (XMLEncoder xmlEncoder = new XMLEncoder(new BufferedOutputStream(
@@ -15,6 +17,7 @@ public class XmlTestData {
             xmlEncoder.flush();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+
         }
     }
 
@@ -26,6 +29,7 @@ public class XmlTestData {
             return data;
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+            logger.info("ERROR: Not write file XML!");
         }
         return null;
     }

@@ -8,7 +8,6 @@ import page.SearchPage;
 import page.StartPage;
 import support.PropertiesReader;
 
-import java.util.Properties;
 
 import static io.github.bonigarcia.wdm.WebDriverManager.chromedriver;
 
